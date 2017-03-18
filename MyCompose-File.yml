@@ -22,5 +22,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/portainer/data:/data
 
-  networks:
-    newui:
+networks:
+  newui:
