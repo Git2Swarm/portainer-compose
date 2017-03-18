@@ -4,23 +4,23 @@ services:
   proxy:
     build: nginx/
     ports:
-      - "80:80"
+      - "88:80"
     networks:
-      - ui
+      - newui
 
   templates:
     image: portainer/templates
     networks:
-      - ui
+      - newui
 
   portainer:
     image: portainer/portainer
     command: --templates http://templates/templates.json
     networks:
-      - ui
+      - newui
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/portainer/data:/data
 
   networks:
-    ui:
+    newui:
