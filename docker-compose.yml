@@ -7,20 +7,20 @@ services:
     ports:
       - "80:80"
     networks:
-      - local
+      - ui
 
   templates:
     image: portainer/templates
     container_name: "portainer-templates"
     networks:
-      - local
+      - ui
 
   portainer:
     image: portainer/portainer
     container_name: "portainer-app"
     command: --templates http://templates/templates.json
     networks:
-      - local
+      - ui
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/portainer/data:/data
@@ -33,5 +33,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
 networks:
-  local:
-    driver: bridge
+  ui:
+   
